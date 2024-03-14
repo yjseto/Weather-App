@@ -36,7 +36,7 @@ const WeatherClass = () => {
 
     return (
         <div className = "weather-info">
-            <form onSubmit = {handleSubmit} id = "submit-form">
+            <form onSubmit = {handleSubmit} className = "col2" id = "submit-form">
                 <input 
                 type="text" 
                 placeholder="Enter city name" 
@@ -46,17 +46,29 @@ const WeatherClass = () => {
             </form>
             {weatherData? (
                 <>
+
                 <h2 id = "city"> {city} Weather Forecast</h2>
-                <p id = "date"> {new Date().toDateString()}</p>
-                <p id = "temp"> Temperature {weatherData.main.temp}°C</p>
-                <p id = "description"> {weatherData.weather[0].description}</p>
-                {/* <p id = "icon-id"> Icon ID: {weatherData.weather[0].icon}</p> */}
-                <p id = "feels-like"> Feels like: {weatherData.main.feels_like}°C</p>
-                <p id = "humidity"> Humidity: {weatherData.main.humidity}%</p>
-                <p id = "wind-speed"> Wind Speed: {weatherData.wind.speed} m/s</p>
-                <p id = "rain">Rain: {weatherData.rain ? weatherData.rain['1h'] : 0} mm</p> 
-                <p id = "sunrise">Sunrise: {new Date(weatherData.sys.sunrise * 1000).toLocaleTimeString([], { hour:'numeric' , minute: '2-digit' })}</p>
-                <p id = "sunset">Sunset: {new Date(weatherData.sys.sunset * 1000).toLocaleTimeString([], { hour:'numeric' , minute: '2-digit' })}</p>
+                <p className = "col2" id = "date"> {new Date().toDateString()}</p>
+                
+                <div className = "col1">
+                    <p id = "temp"> Temperature {weatherData.main.temp}°C</p>
+                    <p id = "description"> {weatherData.weather[0].description}</p>
+                </div>
+                
+                <div className="detail-info">
+                    <div className = "subCol1">
+                        <p className="col2" id = "feels-like"> Feels like: {weatherData.main.feels_like}°C</p>
+                        <p className="col2" id = "humidity"> Humidity: {weatherData.main.humidity}%</p>
+                        <p className="col2" id = "sunrise">Sunrise: {new Date(weatherData.sys.sunrise * 1000).toLocaleTimeString([], { hour:'numeric' , minute: '2-digit' })}</p>
+                    </div>
+
+                    <div className = "subCol2">
+                        <p className="col2" id = "wind"> Wind Speed: {weatherData.wind.speed} m/s</p>
+                        <p className="col2" id = "rain">Rain: {weatherData.rain ? weatherData.rain['1h'] : 0} mm</p> 
+                        <p className="col2" id = "sunset">Sunset: {new Date(weatherData.sys.sunset * 1000).toLocaleTimeString([], { hour:'numeric' , minute: '2-digit' })}</p>
+                    </div>
+                </div>
+
                 </>
             ) : (
                 <p>Enter City ...</p>
