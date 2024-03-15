@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 
 const WeatherClass = () => {
-    const [city, setCity] = useState('');
+    const [city, setCity] = useState('Anchorage');
     const [weatherData, setWeatherData] = useState(null);
 
     useEffect(() => {
@@ -36,7 +36,7 @@ const WeatherClass = () => {
 
     return (
         <div className = "weather-info">
-            <form onSubmit = {handleSubmit} className = "col2" id = "submit-form">
+            <form onSubmit = {handleSubmit} className = "col2" id = "search-form">
                 <input 
                 type="text" 
                 placeholder="Enter city name" 
@@ -48,11 +48,12 @@ const WeatherClass = () => {
                 <>
 
                 <h2 id = "city"> {city} Weather Forecast</h2>
-                <p className = "col2" id = "date"> {new Date().toDateString()}</p>
                 
                 <div className = "col1">
+                    <p id = "date"> {new Date().toDateString()}</p>
                     <p id = "temp"> Temperature {weatherData.main.temp}°C</p>
                     <p id = "description"> {weatherData.weather[0].description}</p>
+                
                 </div>
                 
                 <div className="detail-info">

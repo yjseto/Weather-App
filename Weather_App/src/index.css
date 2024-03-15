@@ -17,39 +17,51 @@
   border: darkgray solid 2px;
   display: grid;
   grid-template-columns: auto auto;
+  grid-column-gap: 10px;
   padding: 20px;
 }
 
 .col1 {
   grid-column: 1;
   border: gray solid 3px;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+#date {
+  justify-content: center;
 }
 
 .col2 {
   grid-column: 2;
+  padding: 10px;
 }
 
 .detail-info {
   display: grid;
   background-color: beige;
   grid-template-columns: auto auto;
-  padding: 10px;
+  
 }
+
 
 .subCol1 {
   grid-column:1;
+  padding: 10px;
 }
 
 #feels-like {
   background-color: white;
   border: transparent solid 2px;
   border-radius: 5px;
+  
 }
 
 #humidity {
   background-color: white;
   border: transparent solid 2px;
   border-radius: 5px;
+  
 }
 
 #sunrise {
@@ -60,6 +72,7 @@
 
 .subCol2 {
   grid-column:2;
+  padding: 10px;
 } 
 
 #wind {
